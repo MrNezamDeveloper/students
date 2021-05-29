@@ -51,6 +51,11 @@ const App = () => {
     cstate[findindex] = objEmail
     setState(cstate)
   }
+  const handelDelet = (index) => {
+    const cpstate = [...state]
+    cpstate.splice(index, 1)
+    setState(cpstate)
+  }
   return (
     <div className="app">
       <Students
@@ -59,6 +64,7 @@ const App = () => {
         changeClassNumber={changeClassNumber}
         changeTell={changeTell}
         changeEmail={changeEmail}
+        deleted={handelDelet}
       />
     </div>
 

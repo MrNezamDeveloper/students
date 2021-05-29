@@ -16,6 +16,7 @@ const Students = (props) => {
                     changeClassNumber={(event)=> props.changeClassNumber(event, student.id)}
                     changeTell={(event)=> props.changeTell(event , student.id)}
                     changeEmail={(e)=>props.changeEmail(e , student.id)}
+                    deleted = {props.deleted}
                 />
             )
         })

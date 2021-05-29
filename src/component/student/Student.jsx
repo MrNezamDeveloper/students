@@ -12,6 +12,7 @@ const Student = (props) => {
             <input   value={props.tell} type="number" onChange={props.changeTell} />
             <label  htmlFor="">ایمیل</label>
             <input   value={props.email} type="email"  onChange={props.changeEmail}/>
+            <label style={{color:"red"}} htmlFor="" onClick={props.deleted}>حذف</label>
         </div>
      );
 }
