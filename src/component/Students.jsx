@@ -1,19 +1,25 @@
 import React from 'react'
-import "./students.css"
+import Student from './student/Student';
 
 const Students = (props) => {
     return ( 
-        <div className="students">
-            <label   htmlFor="">شماره دانش آموز</label>
-            <label   htmlFor="">نام و نام خانوادگی دانش آموز</label>
-            <input type="text" />
-            <label  htmlFor="">شماره کلاس</label>
-            <input type="number" />
-            <label  htmlFor="">تلفن</label>
-            <input type="number" />
-            <label  htmlFor="">ایمیل</label>
-            <input type="email" />
-        </div>
+        props.stateStudents.map((student,index)=>{
+            return(
+                <Student
+                    key={index}
+                    id={student.id}
+                    name={student.name}
+                    classnumber={student.classnumber}
+                    tell={student.tell}
+                    email={student.email}
+                    nameChange={(event)=> props.nameHandeler(event , student.id)}
+                    changeClassNumber={(event)=> props.changeClassNumber(event, student.id)}
+                    changeTell={(event)=> props.changeTell(event , student.id)}
+                    changeEmail={(e)=>props.changeEmail(e , student.id)}
+                />
+            )
+        })
+        
      );
 }
  
