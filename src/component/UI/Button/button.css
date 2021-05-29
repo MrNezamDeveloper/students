@@ -10,6 +10,9 @@
     border-radius: 5px;
     font-weight: bolder;
 }
-.danger {
+.danger{
     background-color: orangered;
+}
+.success{
+    background-color: green;
 }

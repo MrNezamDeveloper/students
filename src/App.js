@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import Students from './component/Students';
+import Button from './component/UI/Button/Button';
 
 const App = () => {
   const [state, setState] = useState([
@@ -9,7 +10,7 @@ const App = () => {
     { id: 3, name: "moo", classnumber: 14423, tell: 5912, email: "moonezam@yahoo.com" },
     { id: 4, name: "moo", classnumber: 13323, tell: 9712, email: "moonezam@yahoo.com" },
   ])
-
+  const [toggle, setToggle] = useState(false)
 
   const nameHandeler = (event, id) => {
     const studentIndex = state.findIndex((para) => {
@@ -56,8 +57,17 @@ const App = () => {
     cpstate.splice(index, 1)
     setState(cpstate)
   }
+
+
+  const toggleHandler = () => {
+    setToggle(!toggle)
+
+  }
   return (
     <div className="app">
+      <Button btntype="success" clicked={toggleHandler}>
+        تغییر وضعیت
+      </Button>
       <Students
         stateStudents={state}
         nameHandeler={nameHandeler}
@@ -65,6 +75,7 @@ const App = () => {
         changeTell={changeTell}
         changeEmail={changeEmail}
         deleted={handelDelet}
+        toggle={toggle}
       />
     </div>
 

@@ -7,12 +7,14 @@ const Button = (props) => {
         case "danger":
             classes.push("danger");
             break;
-    
+            case "success":
+                classes.push("success");
+                break;
         default:
             break;
     }
     return ( 
-        <button className={classes.join(' ')} onClick={props.deleted}>
+        <button className={classes.join(' ')} onClick={props.clicked}>
             {props.children}
         </button>
      );

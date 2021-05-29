@@ -14,7 +14,7 @@ const Student = (props) => {
             <label  htmlFor="">ایمیل</label>
             <input   value={props.email} type="email"  onChange={props.changeEmail}/>
             <label>
-                <Button btntype="danger" deleted={props.deleted}>
+                <Button btntype="danger" clicked={props.deleted}>
                             حذف
                 </Button>
             </label>           
