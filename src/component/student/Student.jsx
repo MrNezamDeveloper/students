@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from '../UI/Button/Button';
 import "./student.css"
 const Student = (props) => {
     return ( 
@@ -12,7 +13,11 @@ const Student = (props) => {
             <input   value={props.tell} type="number" onChange={props.changeTell} />
             <label  htmlFor="">ایمیل</label>
             <input   value={props.email} type="email"  onChange={props.changeEmail}/>
-            <label style={{color:"red"}} htmlFor="" onClick={props.deleted}>حذف</label>
+            <label>
+                <Button btntype="danger" deleted={props.deleted}>
+                            حذف
+                </Button>
+            </label>           
         </div>
      );
 }
