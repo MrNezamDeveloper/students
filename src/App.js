@@ -1,21 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Students from './component/Students';
 import Button from './component/UI/Button/Button';
 
 const App = () => {
   const [state, setState] = useState([
-    { id: 1, name: "moo", classnumber: 123, tell: 1912, email: "moonezam@yahoo.com" },
-    { id: 2, name: "moo", classnumber: 233, tell: 9142, email: "moonezam@yahoo.com" },
-    { id: 3, name: "moo", classnumber: 14423, tell: 5912, email: "moonezam@yahoo.com" },
-    { id: 4, name: "moo", classnumber: 13323, tell: 9712, email: "moonezam@yahoo.com" },
+    { id: 1, name: "mohamad", classnumber: 123, tell: 1912, email: "moonezam@yahoo.com" },
+    { id: 2, name: "reza", classnumber: 233, tell: 9142, email: "moonezam@yahoo.com" },
+    { id: 3, name: "alireza", classnumber: 14423, tell: 5912, email: "moonezam@yahoo.com" },
+    { id: 4, name: "mohamadreza", classnumber: 13323, tell: 9712, email: "moonezam@yahoo.com" },
   ])
-  const [toggle, setToggle] = useState(false)
+  const [toggle, setToggle] = useState(false);
+  const [arryHold, setArryHold] = useState([])
+  const [search, setSearch] = useState('');
+
+  useEffect(() => {
+    setArryHold(state)
+  }, []);
+
+  const searchHandeler = (e) => {
+    const itemData = arryHold.filter((item) => {
+      const itemData = item.name.toUpperCase()
+      const textData = e.target.value.toUpperCase()
+      return itemData.indexOf(textData) > -1
+    })
+    setState(itemData)
+    setSearch(e.target.value)
+  }
 
   const nameHandeler = (event, id) => {
-    const studentIndex = state.findIndex((para) => {
-      return para.id === id
-    })
+    const studentIndex = state.findIndex(para => para.id === id)
     const findStudent = { ...state[studentIndex] }
     findStudent.name = event.target.value;
     const students = [...state]
@@ -64,7 +78,9 @@ const App = () => {
 
   }
   return (
+
     <div className="app">
+      <input value={search} onChange={searchHandeler} />
       <Button btntype="success" clicked={toggleHandler}>
         تغییر وضعیت
       </Button>
