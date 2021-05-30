@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import Button from '../UI/Button/Button';
 import './newstudent.css'
 
@@ -25,4 +26,18 @@ const NewStudent = (props) => {
      );
 }
  
-export default NewStudent;
+export default React.memo(NewStudent);
+
+NewStudent.propTypes = {
+    handlenewstudent:PropTypes.func,
+    handlenewtell:PropTypes.func,
+    handlenewclassnumber:PropTypes.func,
+    handlenewemail:PropTypes.func,
+    handelNewStudent:PropTypes.func,
+    
+    newstudent:PropTypes.string,
+    newtell:PropTypes.number,
+    newclassnumber:PropTypes.number,
+    newemail:PropTypes.string,
+    clicked : PropTypes.func
+}

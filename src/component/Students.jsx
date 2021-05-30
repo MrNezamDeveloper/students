@@ -1,11 +1,15 @@
 import React from 'react'
 import Student from './student/Student';
+import PropTypes from 'prop-types';
 import "./student/student.css"
 
 
 const Students = (props) => {
+    
 if(props.toggle){
+    
     return(
+    
 
     <div className="flex-display">
             {props.stateStudents.map((student,index)=>{
@@ -56,4 +60,14 @@ return(
     
 }
  
-export default Students;
+export default React.memo( Students) ; 
+
+Students.propTypes={
+    toggle : PropTypes.bool.isRequired,
+    stateStudents : PropTypes.array.isRequired,
+    nameHandeler:PropTypes.func.isRequired ,
+    changeClassNumber :PropTypes.func.isRequired ,
+    changeTell :PropTypes.func.isRequired ,
+    changeEmail: PropTypes.func.isRequired,
+    deleted : PropTypes.func.isRequired
+}
