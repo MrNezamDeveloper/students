@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import Toolbar from './component/container/toolbar/Toolbar';
 import NewStudent from './component/newStudent/NewStudent';
 import Students from './component/Students';
 import Button from './component/UI/Button/Button';
@@ -120,6 +121,7 @@ const App = () => {
   return (
 
     <div className="app">
+      <Toolbar />
       <NewStudent
         newstudent={newstudent}
         newclassnumber={newclassnumber}
