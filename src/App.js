@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import NewStudent from './component/newStudent/NewStudent';
 import Students from './component/Students';
 import Button from './component/UI/Button/Button';
 
@@ -13,6 +14,13 @@ const App = () => {
   const [toggle, setToggle] = useState(false);
   const [arryHold, setArryHold] = useState([])
   const [search, setSearch] = useState('');
+  const [newstudent, setnewstudent] = useState('')
+  const [newclassnumber, setnewclassnumber] = useState();
+  const [newtell, setnewtell] = useState()
+  const [newemail, setnewemail] = useState('')
+
+
+
 
   useEffect(() => {
     setArryHold(state)
@@ -77,9 +85,56 @@ const App = () => {
     setToggle(!toggle)
 
   }
+
+
+
+
+  const handelNewStudent = () => {
+    const studentNew = [...state]
+    studentNew.push({
+      "id": state.length,
+      "name": newstudent,
+      "classnumber": newclassnumber,
+      "tell": newtell,
+      "email": newemail
+    })
+    setState(studentNew)
+    setnewstudent("")
+    setnewemail('')
+    setnewtell('')
+    setnewclassnumber('')
+  }
+  const handlenewstudent = (e) => {
+    setnewstudent(e.target.value)
+  }
+  const handlenewclassnumber = (e) => {
+    setnewclassnumber(e.target.value)
+  }
+
+  const handlenewtell = (e) => {
+    setnewtell(e.target.value)
+  }
+  const handlenewemail = (e) => {
+    setnewemail(e.target.value)
+  }
   return (
 
     <div className="app">
+      <NewStudent
+        newstudent={newstudent}
+        newclassnumber={newclassnumber}
+        newtell={newtell}
+        newemail={newemail}
+        handlenewstudent={handlenewstudent}
+        handlenewclassnumber={handlenewclassnumber}
+        handlenewtell={handlenewtell}
+        handlenewemail={handlenewemail}
+        handelNewStudent={handelNewStudent}
+
+
+
+      />
+      <h3>جستجو بر اساس نام دانش آموز</h3>
       <input value={search} onChange={searchHandeler} />
       <Button btntype="success" clicked={toggleHandler}>
         تغییر وضعیت
