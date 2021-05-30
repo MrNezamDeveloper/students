@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import Toolbar from './component/container/toolbar/Toolbar';
+import Toolbar from './component/container/Header/toolbar/Toolbar';
 import NewStudent from './component/newStudent/NewStudent';
 import Students from './component/Students';
 import Button from './component/UI/Button/Button';
