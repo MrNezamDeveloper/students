@@ -1,0 +1,30 @@
+input{
+    width: 95%;
+    height: 45px;
+    border-radius: 5px;
+    padding: 5px;
+    border:1px solid #ccc;
+    outline: none;
+    box-sizing: border-box;
+    margin: 10px auto;
+    direction: ltr;
+}
+.capcha_valid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 5px;
+    width: 90%;
+    flex-direction: row;
+}
+.capcha_valid img{
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+}
+.capcha_valid p {
+    width: 90px;
+    margin: 10px;
+    direction: ltr;
+}
