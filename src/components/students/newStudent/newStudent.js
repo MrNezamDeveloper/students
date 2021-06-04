@@ -12,16 +12,16 @@ const NewStudent = (props) => {
     return (
         <React.Fragment>
 
-            <h1>اضافه کردن دانش آموز جدید</h1>
-            <label>نام و نام خانوادگی</label>
+            <h1>Add New Student</h1>
+            <label>Full Name</label>
             <input type="text" value={studentName} onChange={studentNameHandler} />
-            <label>کلاس</label>
+            <label>Class Number</label>
             <input type="number" value={studentClass} onChange={studentClassHandler} maxLength={3} />
-            <label>شماره تلفن</label>
+            <label>Phone Number</label>
             <input type="number" value={studentPhoneNumber} onChange={studentPhoneNumberHandler} />
-            <label>ایمیل</label>
+            <label>Email</label>
             <input type="email" value={studentEmail} onChange={studentEmailHandler} />
-            <Button clicked={props.clicked} btnType="danger">اضافه کردن</Button>
+            <Button clicked={props.clicked} btnType="danger">Add To List</Button>
         </React.Fragment>
     )
 }

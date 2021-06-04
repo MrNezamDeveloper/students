@@ -6,25 +6,25 @@ const Student = (props) => {
 
     return (
         <div className="students">
-            <label>شماره دانش آموزی :{props.id}</label>
-            <label>نام و نام خانوادگی :{props.name}</label>
-            <label>کلاس :{props.classNumber}</label>
-            <label>شماره تلفن :{props.phoneNumber}</label>
-            <label>ایمیل : {props.email}</label>
-            <label>نمره : {props.score}</label>
+            <label>Student Number :{props.id}</label>
+            <label>Full Name:{props.name}</label>
+            <label>Class Number :{props.classNumber}</label>
+            <label>Phone Number :{props.phoneNumber}</label>
+            <label>Email : {props.email}</label>
+            <label>Score : {props.score}</label>
             <label >
                 <Button
                     btnType="danger"
                     clicked={props.deleted}
                 >
-                    حذف
+                    Delete
             </Button>
 
                 <Button
                     btnType="success"
                     clicked={props.edited}
                 >
-                    ویرایش
+                    Edit
                 </Button>
 
 

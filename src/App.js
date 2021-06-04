@@ -1,34 +1,37 @@
-import React,{Suspense} from 'react';
+import React, { Suspense, useContext } from 'react';
 import './App.css';
 import Toolbar from './containers/Header/Toolbar/Toolbar';
-import {BrowserRouter,Route,Switch} from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import HomePage from '../src/pages/Homepage';
 import EditStudent from '../src/pages/EditStudent';
-const AddStudent = React.lazy(()=>import('../src/pages/AddStudent')) ;
-const App=() =>{
-  
+import AuthContextProvider from '../src/Context/Auth'
+import { ThemContext } from './Context/Them';
+const AddStudent = React.lazy(() => import('../src/pages/AddStudent'));
+
+const App = () => {
+
+  const { them, light, dark } = useContext(ThemContext)
+  const themApp = them ? light : dark
   return (
     <BrowserRouter>
-      <div className="App"> 
-        <Toolbar />
-        <div style={{marginTop:'70px'}}>
+      <AuthContextProvider>
+        <div className="App" style={{ background: themApp.bg, color: themApp.syntax, transition: '1000ms' }}>
+          <Toolbar />
+
           <Switch>
             <Route path="/" exact component={HomePage} />
-            <Route path="/add-student" exact render={()=>(
+            <Route path="/add-student" exact render={() => (
               <Suspense fallback={<p>...loading</p>}>
                 <AddStudent />
-              </Suspense>)} 
+              </Suspense>)}
             />
             <Route path="/student/:studentid" exact component={EditStudent} />
-            <Route render={()=><h1>not Found</h1>} />
+            <Route render={() => <h1>not Found</h1>} />
           </Switch>
-          
-          
         </div>
-        
-    </div>
+      </AuthContextProvider>
     </BrowserRouter>
-    
+
   );
 }
 
